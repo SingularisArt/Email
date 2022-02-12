@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+source ~/Singularis/bin/common
+source ~/Singularis/bin/variables
+
+log_info "Installing abook"
+
+ln -sf ${ASPECTS}/email/abook             ~/.config
+
+log_info "Installing glow"
+
+ln -sf ${ASPECTS}/email/glow              ~/.config
+
+log_info "Installing isync"
+
+ln -sf ${ASPECTS}/email/isync             ~/.config
+
+log_info "Installing msmtp"
+
+ln -sf ${ASPECTS}/email/msmtp             ~/.config
+
+log_info "Installing mutt"
+
+ln -sf ${ASPECTS}/email/mutt              ~/.config
+
+log_info "Installing notmuch"
+
+ln -sf ${ASPECTS}/email/notmuch           ~/.config
+
+log_info "Installing systemd"
+
+ln -sf ${ASPECTS}/email/systemd           ~/.config
+
+log_info "Installing vdirsyncer"
+
+ln -sf ${ASPECTS}/email/vidersyncer       ~/.config

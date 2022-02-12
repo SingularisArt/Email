@@ -1,0 +1,50 @@
+# vim: filetype=neomuttrc
+# example of a google imap configuration
+# change college to something sensible (this should match msmtp and isync)
+set realname = "Hashem A. Damrah"
+set from = "hashem.damrah@pcc.edu"
+set sendmail = "msmtp -a college"
+alias me Hashem A. Damrah <hashem.damrah@pcc.edu>
+set folder = "~/.local/share/mail/college"
+set header_cache = ~/.cache/mutt/college/headers
+set message_cachedir = ~/.cache/mutt/college/bodies
+set mbox_type = Maildir
+set reverse_name=yes
+set reverse_realname=no
+
+macro index o "<shell-escape>mailsync -V college<enter>" "run mbsync to sync main"
+# Allows responding to calendar invites (replace mutt-ical with import_calendar_invite if you want to import the event into a local calendar too)
+macro attach,pager A '<shell-escape>rm -vf /tmp/.mutt.ics<enter><save-entry><kill-line>mutt-ical /tmp/.mutt.ics hashem.damrah@pcc.edu<enter><shell-escape>
+unmailboxes *
+
+# Create virtual mailboxes for all mail and all accounts (replace college below)
+virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
+virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:college%2F**"
+
+set spoolfile = "+INBOX"
+set record = "+[Gmail].Sent Mail"
+set postponed = "+[Gmail].Drafts"
+set trash = ""
+# Query with goobook
+set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
+# a add to address book
+macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add the sender address to Google contacts"
+
+# Folders
+mailboxes "=INBOX" "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash"
+
+macro index gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index Mi ";<save-message>=INBOX<enter><enter>" "move mail to inbox"
+macro index Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"
+macro index gs "<change-folder>=[Gmail]/Sent\ Mail<enter>" "go to sent"
+macro index Ms ";<save-message>=[Gmail]/Sent\ Mail<enter><enter>" "move mail to sent"
+macro index Cs ";<copy-message>=[Gmail]/Sent\ Mail<enter>" "copy mail to sent"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
+macro index Md ";<save-message>=[Gmail]/Drafts<enter><enter>" "move mail to drafts"
+macro index Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
+macro index gS "<change-folder>=[Gmail]/Spam<enter>" "go to spam"
+macro index MS ";<save-message>=[Gmail]/Spam<enter><enter>" "move mail to spam"
+macro index CS ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"
+
+# C-f search with notmuch (replace college below)
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:college/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"

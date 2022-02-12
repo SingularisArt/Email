@@ -1,0 +1,77 @@
+# dermdorm2@gmail.com
+IMAPStore dermdorm2@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User dermdorm2@gmail.com
+PassCmd "pass dermdorm2@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore dermdorm2@gmail.com-local
+Subfolders Verbatim
+Path /home/hashem/.local/share/mail/main/
+Inbox /home/hashem/.local/share/mail/main/INBOX
+
+Channel dermdorm2@gmail.com
+Expunge Both
+Master :dermdorm2@gmail.com-remote:
+Slave :dermdorm2@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+# hdamrah9249@bakercharters.org
+IMAPStore hdamrah9249@bakercharters.org-remote
+Host imap.gmail.com
+Port 993
+User hdamrah9249@bakercharters.org
+PassCmd "pass hdamrah9249@bakercharters.org"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hdamrah9249@bakercharters.org-local
+Subfolders Verbatim
+Path /home/hashem/.local/share/mail/school/
+Inbox /home/hashem/.local/share/mail/school/INBOX
+
+Channel hdamrah9249@bakercharters.org
+Expunge Both
+Master :hdamrah9249@bakercharters.org-remote:
+Slave :hdamrah9249@bakercharters.org-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+# hashem.damrah@pcc.edu
+IMAPStore hashem.damrah@pcc.edu-remote
+Host imap.gmail.com
+Port 993
+User hashem.damrah@pcc.edu
+PassCmd "pass hashem.damrah@pcc.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hashem.damrah@pcc.edu-local
+Subfolders Verbatim
+Path /home/hashem/.local/share/mail/college/
+Inbox /home/hashem/.local/share/mail/college/INBOX
+
+Channel hashem.damrah@pcc.edu
+Expunge Both
+Master :hashem.damrah@pcc.edu-remote:
+Slave :hashem.damrah@pcc.edu-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
