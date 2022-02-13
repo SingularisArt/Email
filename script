@@ -34,3 +34,23 @@ ln -sf ${ASPECTS}/email/systemd           ~/.config
 log_info "Installing vdirsyncer"
 
 ln -sf ${ASPECTS}/email/vidersyncer       ~/.config
+
+sudo pacman -S --noconfirm --needed \
+    abook \
+    glow \
+    isync \
+    msmtp \
+    neomutt \
+    notmuch \
+    systemd \
+    vdirsyncer
+
+sudo ln -sf ~/Singularis/aspects/email/bin/beautiful_html_render /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/import_calendar_invite /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/ldap_owa_query /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/mailsync /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/mutt-ical /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/mutt-nm-search-cached /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/mutt-trim /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/mutt-viewical /usr/bin
+sudo ln -sf ~/Singularis/aspects/email/bin/render-calendar-attachment.py /usr/bin

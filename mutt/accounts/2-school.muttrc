@@ -52,7 +52,7 @@ mailboxes "=Middle School"
 mailboxes "=Middle School.8th Grade"
 mailboxes "=Middle School.8th Grade.Semester 2"
 mailboxes "=Other"
-mailboxes "=INBOX" "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash"
+mailboxes "=INBOX"
 
 macro index gi "<change-folder>=INBOX<enter>" "go to inbox"
 macro index Mi ";<save-message>=INBOX<enter><enter>" "move mail to inbox"

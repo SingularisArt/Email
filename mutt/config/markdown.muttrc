@@ -1,2 +1,0 @@
-macro compose M "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=UTF-8\n" "Convert from MD to HTML"
-

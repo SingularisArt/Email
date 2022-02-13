@@ -8,11 +8,12 @@ source $HOME/.config/mutt/keys/unbinds.muttrc
 source $HOME/.config/mutt/keys/binds.muttrc 
 
 #### Accounts
-# CHANGE THESE TO MATCH YOUR ACCOUNT CONFIG
 source $HOME/.config/mutt/accounts/1-main.muttrc  #default account
-macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to sample account"
+# source $HOME/.config/mutt/accounts/2-school.muttrc  #default account
+# source $HOME/.config/mutt/accounts/3-college.muttrc  #default account
+macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
 macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
-macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to some other account"
+macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
 
 #### General Settings
 set smtp_authenticators = 'gssapi:login'
@@ -52,7 +53,7 @@ set pager_context = 3      # number of context lines to show
 set pager_stop             # don't go to next message automatically
 set menu_scroll            # scroll in menus
 set smart_wrap             # wrap lines at word boundaries rather than splitting up words
-set wrap=90                # email view width
+set wrap = 90              # email view width
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 # Tidy up emails significantly
@@ -87,22 +88,21 @@ set sidebar_next_new_wrap = yes
 set sidebar_on_right = no
 set sidebar_divider_char = ' 	░'
 set mail_check_stats
-# set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
-set sidebar_sort_method = 'unsorted'
+set sidebar_sort_method = 'new'
 
 #### Thread ordering
 set use_threads=reverse
-set sort='last-date'
+set sort = 'last-date'
 set collapse_all = yes
 set uncollapse_new = no
 set thread_received = yes
-set narrow_tree=no
+set narrow_tree = no
 
 #### Lists
 set auto_subscribe
 
 ### Sounds
-set beep=no  # don't beep for errors
+set beep = no  # don't beep for errors
 set beep_new # beep for new messages
 
 #### Text editor
@@ -113,7 +113,7 @@ macro compose M "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=UTF-8
 
 #### Show patch files (requires git-split-diffs)
 macro attach P "|git-split-diffs --color | less -RF<enter>" "View a patch file as a diff"
-set wait_key=no
+set wait_key = no
 
 # this is a bit of a hack which you may not want/need
 timeout-hook 'exec sync-mailbox' # sync mailbox whenever idle

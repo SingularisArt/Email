@@ -1,6 +1,0 @@
-macro attach P "|git-split-diffs --color | less -RF<enter>" "View a patch file as a diff"
-set wait_key=no
-
-# this is a bit of a hack which you may not want/need
-timeout-hook 'exec sync-mailbox' # sync mailbox whenever idle
-

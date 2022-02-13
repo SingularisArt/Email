@@ -1,2 +1,0 @@
-set editor="mutt-trim %s; nvim +':set textwidth=72' +':set wrapmargin=0' +':set wrap' +':set spell' %s"
-

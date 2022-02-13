@@ -1,0 +1,3 @@
+[submodule "mutt-notmuch-py"]
+	path = mutt/third-party-tools/mutt-notmuch-py
+	url = https://github.com/honza/mutt-notmuch-py
