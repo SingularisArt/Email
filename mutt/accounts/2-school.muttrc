@@ -54,18 +54,5 @@ mailboxes "=Middle School.8th Grade.Semester 2"
 mailboxes "=Other"
 mailboxes "=INBOX"
 
-macro index gi "<change-folder>=INBOX<enter>" "go to inbox"
-macro index Mi ";<save-message>=INBOX<enter><enter>" "move mail to inbox"
-macro index Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"
-macro index gs "<change-folder>=[Gmail]/Sent\ Mail<enter>" "go to sent"
-macro index Ms ";<save-message>=[Gmail]/Sent\ Mail<enter><enter>" "move mail to sent"
-macro index Cs ";<copy-message>=[Gmail]/Sent\ Mail<enter>" "copy mail to sent"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
-macro index Md ";<save-message>=[Gmail]/Drafts<enter><enter>" "move mail to drafts"
-macro index Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
-macro index gS "<change-folder>=[Gmail]/Spam<enter>" "go to spam"
-macro index MS ";<save-message>=[Gmail]/Spam<enter><enter>" "move mail to spam"
-macro index CS ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"
-
 # C-f search with notmuch (replace school below)
 macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:school/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"

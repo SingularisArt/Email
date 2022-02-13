@@ -113,7 +113,6 @@ bind compose F filter-entry                                                   # 
 bind compose \Ct edit-type                                                    # Edit type                         (<C-t>)
 bind compose \Ck move-up                                                      # Move up                           (<C-k>)
 bind compose \Cj move-down                                                    # Move down                         (<C-j>)
-bind compose <return> view-attachments                                        # View attachments                  (<Tab>)
 
 bind editor <Tab> complete-query                                              # Complete query                    (<Tab>)
 

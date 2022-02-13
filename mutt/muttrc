@@ -8,12 +8,10 @@ source $HOME/.config/mutt/keys/unbinds.muttrc
 source $HOME/.config/mutt/keys/binds.muttrc 
 
 #### Accounts
-source $HOME/.config/mutt/accounts/1-main.muttrc  #default account
-# source $HOME/.config/mutt/accounts/2-school.muttrc  #default account
-# source $HOME/.config/mutt/accounts/3-college.muttrc  #default account
-macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
-macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
-macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
+source $HOME/.config/mutt/accounts/2-school.muttrc  #default account
+macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to main account"
+macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to school account"
+macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to college account"
 
 #### General Settings
 set smtp_authenticators = 'gssapi:login'
@@ -106,7 +104,8 @@ set beep = no  # don't beep for errors
 set beep_new # beep for new messages
 
 #### Text editor
-set editor="mutt-trim %s; nvim +':set textwidth=72' +':set wrapmargin=0' +':set wrap' +':set spell' %s"
+# set editor="mutt-trim %s; nvim +':set textwidth=72' +':set wrapmargin=0' +':set wrap' +':set spell' %s"
+set editor="nvim"
 
 #### Markdown to html email conversion
 macro compose M "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=UTF-8\n" "Convert from MD to HTML"

@@ -66,8 +66,8 @@ mailboxes "=Website.Disqus" "=Website.GetForm" "=Website.Gilles Castel" "=Websit
 mailboxes "=YouTube"
 mailboxes "=YouTube.Mr Whaatwaa" "=YouTube.Neil Sabde" "=YouTube.The Primeagen"
 
-mailboxes "=INBOX"
-mailboxes "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
+mailboxes "=INBOX" "=[Gmail].All Mail"
+# mailboxes "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
 
 set sidebar_new_mail_only
 set sidebar_new_mail_only
