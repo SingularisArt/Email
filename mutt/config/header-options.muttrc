@@ -1,0 +1,5 @@
+ignore *                                # ignore all headers
+unignore to: cc:                        # ..then selectively show only these headers
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # header item ordering
+

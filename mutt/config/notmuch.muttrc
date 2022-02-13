@@ -1,0 +1,6 @@
+set nm_query_type=threads                                   # bring in the whole thread instead of just the matched message, really useful
+set nm_default_url = "notmuch:///$HOME/.local/share/mail"   # default notmuch URL
+set nm_record_tags = "sent"                                 # default 'sent' tag
+set virtual_spoolfile=yes                                   # allow using virtual mailboxes as spoolfile 
+macro index \Cg "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Accounts<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \$(/bin/cat ~/.cache/mutt_terms) | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a' | sed 's/id://g' \`\"<enter>" "Search all mailboxes in all accounts (Global search)"
+

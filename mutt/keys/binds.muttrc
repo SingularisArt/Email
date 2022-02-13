@@ -51,6 +51,10 @@ bind index,attach,browser,query <Up> previous-entry
 
 bind index,pager,attach,browser,query,alias,compose q exit
 
+# move a mail to another folder
+macro pager m "<save-message>?<toggle-mailboxes>" "Move to..."
+macro index m ";<save-message>?<toggle-mailboxes>" "Move to..."
+
 # Mail manipulation from index list
 bind index t tag-entry
 bind index T tag-thread
@@ -104,3 +108,16 @@ macro index \Ca "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 macro attach,compose \cl "<pipe-entry> urlscan -d -w 80<Enter>" "call urlscan to extract URLs out of a message"
 
 set abort_key = "<Esc>"
+
+macro index gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index Mi ";<save-message>=INBOX<enter><enter>" "move mail to inbox"
+macro index Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"
+macro index gs "<change-folder>=[Gmail]/Sent\ Mail<enter>" "go to sent"
+macro index Ms ";<save-message>=[Gmail]/Sent\ Mail<enter><enter>" "move mail to sent"
+macro index Cs ";<copy-message>=[Gmail]/Sent\ Mail<enter>" "copy mail to sent"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
+macro index Md ";<save-message>=[Gmail]/Drafts<enter><enter>" "move mail to drafts"
+macro index Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
+macro index gS "<change-folder>=[Gmail]/Spam<enter>" "go to spam"
+macro index MS ";<save-message>=[Gmail]/Spam<enter><enter>" "move mail to spam"
+macro index CS ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"

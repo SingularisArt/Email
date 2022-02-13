@@ -1,0 +1,7 @@
+auto_view application/ics
+auto_view text/calendar
+auto_view text/plain
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/calendar application/ics text/plain text/enriched text/html
+

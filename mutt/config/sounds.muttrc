@@ -1,0 +1,3 @@
+set beep=no  # don't beep for errors
+set beep_new # beep for new messages
+

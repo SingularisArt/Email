@@ -1,0 +1,7 @@
+set use_threads=reverse
+set sort='last-date'
+set collapse_all = yes
+set uncollapse_new = no
+set thread_received = yes
+set narrow_tree=no
+

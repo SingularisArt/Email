@@ -1,0 +1,5 @@
+source $HOME/.config/mutt/accounts/1-main.muttrc  #default account
+macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to sample account"
+macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to another account"
+macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to some other account"
+
