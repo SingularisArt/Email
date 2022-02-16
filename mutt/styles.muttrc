@@ -162,3 +162,4 @@ tag-formats "replied" "GR" \
 
  # don't put '+' at the beginning of wrapped lines
 set markers=no
+

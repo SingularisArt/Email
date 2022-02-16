@@ -1,0 +1,10 @@
+[Unit]
+Description=Mailbox synchronization service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mailsync
+
+[Install]
+WantedBy=default.target
+

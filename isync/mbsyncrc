@@ -1,28 +1,29 @@
 # dermdorm2@gmail.com
-IMAPStore main-remote
-Host imap.gmail.com
-Port 993
-User dermdorm2@gmail.com
-PassCmd "pass dermdorm2@gmail.com"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore main-local
-Subfolders Verbatim
-Path ~/.local/share/mail/main/
-Inbox ~/.local/share/mail/main/INBOX
-Flatten .
-
-Channel main
-Expunge Both
-Far :main-remote:
-Near :main-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-Create Both
-SyncState *
-MaxMessages 1000
-ExpireUnread no
+# IMAPStore main-remote
+# Host imap.gmail.com
+# Port 993
+# User dermdorm2@gmail.com
+# PassCmd "pass dermdorm2@gmail.com"
+# AuthMechs LOGIN
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
+#
+# MaildirStore main-local
+# Subfolders Verbatim
+# Path ~/.local/share/mail/main/
+# Inbox ~/.local/share/mail/main/INBOX
+# Flatten .
+#
+# Channel main
+# Expunge Both
+# Far :main-remote:
+# Near :main-local:
+# Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
+# Patterns *
+# Create Both
+# SyncState *
+# MaxMessages 1000
+# ExpireUnread no
 
 # hdamrah9249@bakercharters.org
 IMAPStore school-remote
@@ -44,34 +45,36 @@ Channel main
 Expunge Both
 Far :school-remote:
 Near :school-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
+Patterns *
 Create Both
 SyncState *
 MaxMessages 1000
 ExpireUnread no
 
 # hashem.damrah@pcc.edu
-IMAPStore college-remote
-Host imap.gmail.com
-Port 993
-User hashem.damrah@pcc.edu
-PassCmd "pass hashem.damrah@pcc.edu"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore college-local
-Subfolders Verbatim
-Path ~/.local/share/mail/college/
-Inbox ~/.local/share/mail/college/INBOX
-Flatten .
-
-Channel main
-Expunge Both
-Far :college-remote:
-Near :college-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-Create Both
-SyncState *
-MaxMessages 1000
-ExpireUnread no
+# IMAPStore college-remote
+# Host imap.gmail.com
+# Port 993
+# User hashem.damrah@pcc.edu
+# PassCmd "pass hashem.damrah@pcc.edu"
+# AuthMechs LOGIN
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
+#
+# MaildirStore college-local
+# Subfolders Verbatim
+# Path ~/.local/share/mail/college/
+# Inbox ~/.local/share/mail/college/INBOX
+# Flatten .
+#
+# Channel main
+# Expunge Both
+# Far :college-remote:
+# Near :college-local:
+# # Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
+# Patterns *
+# Create Both
+# SyncState *
+# MaxMessages 1000
+# ExpireUnread no

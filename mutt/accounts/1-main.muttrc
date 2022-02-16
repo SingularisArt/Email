@@ -1,5 +1,4 @@
 # vim: filetype=neomuttrc
-# example of a google imap configuration
 # change main to something sensible (this should match msmtp and isync)
 set realname = "Hashem A. Damrah"
 set from = "dermdorm2@gmail.com"
@@ -21,6 +20,40 @@ unmailboxes *
 virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
 virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:main%2F**"
 
+mailboxes "=Currency"
+mailboxes "=Currency.Chase" "=Currency.Coinbase" "=Currency.CoinMarketCap" "=Currency.eToro" "=Currency.Gemini" "=Currency.Infura"
+mailboxes "=Education"
+mailboxes "=Education.Coding"
+"=Education.Coding.Coursera" "=Education.Coding.Crybrary" "=Education.Coding.Docker" "=Education.Coding.Event Brite" "=Education.Coding.Guru99" "=Education.Coding.HackTheBox" "=Education.Coding.ITProTV" "=Education.Coding.Linode" "=Education.Coding.PyImageSearch"
+mailboxes "=Education.edX"
+mailboxes "=Education.Game Engines"
+mailboxes "=Education.Game Engines.Unity" "=Education.Game Engines.Unreal Engine"
+mailboxes "=Education.Goodreads" "=Education.Khan Acadmey and Jet Brains"
+mailboxes "=Education.Languages"
+mailboxes "=Education.Languages.SpanishPod101"
+mailboxes "=Education.Medium" "=Education.Memrise" "=Education.Milanote" "=Education.Motley Fool" "=Education.National Geographic" "=Education.OverLeaf" "=Education.Quizlet" "=Education.Reddit" "=Education.Speed Reading" "=Education.Trello" "=Education.Udemy"
+mailboxes "=Education.Wave"
+mailboxes "=Education.Wave.Aerodynamics" "=Education.Wave.AI and Machine Learning" "=Education.Wave.American People's History""" "=Education.Wave.AP Physics" "=Education.Wave.Ed" "=Education.Wave.Geometry" "=Education.Wave.How to get published as a teen" "=Education.Wave.Introduction to AI" "=Education.Wave.Sharing Secrets with Cryptography"
+mailboxes "=Education.Zotero"
+mailboxes "=Git"
+mailboxes "=Git.GitGuardian" "=Git.GitHub" "=Git.GitHub.Responses"
+mailboxes "=Google"
+mailboxes "=Google.Google Ads" "=Google.Google AdSense" "=Google.Google Analytics" "=Google.Google Calendar" "=Google.Google Cloud" "=Google.Google Colab" "=Google.Google Docs" "=Google.Google Drive" "=Google.Google Forms" "=Google.Google Photos" "=Google.Google Security" "=Google.Google Sheets" "=Google.Google Slides"
+mailboxes "=LastPass"
+mailboxes "=Other"
+mailboxes "=Other.DavientArt" "=Other.Digital Ocean" "=Other.Grammerly" "=Other.Quora" "=Other.Ruqaiyah" "=Other.Spotify" "=Other.Wrike"
+mailboxes "=Proton"
+mailboxes "=Proton.Mail" "=Proton.VPN"
+mailboxes "=School"
+mailboxes "=School.Brainly" "=School.Notion"
+mailboxes "=Website"
+mailboxes "=Website.Disqus" "=Website.GetForm" "=Website.Gilles Castel" "=Website.Netlify"
+mailboxes "=YouTube"
+mailboxes "=YouTube.Mr Whaatwaa" "=YouTube.Neil Sabde" "=YouTube.The Primeagen"
+
+mailboxes "=INBOX" "=Archive"
+mailboxes "=[Gmail].All Mail" "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
+
 set spoolfile = "+INBOX"
 set record = "+[Gmail].Sent Mail"
 set postponed = "+[Gmail].Drafts"
@@ -30,43 +63,6 @@ set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
 # a add to address book
 macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add the sender address to Google contacts"
 
-mailboxes "=Currency"
-mailboxes "=Currency.Chase" "=Currency.Coinbase" "=Currency.CoinMarketCap" "=Currency.eToro" "=Currency.Gemini" "=Currency.Infura"
-
-mailboxes "=Education"
-mailboxes "=Education.Coding"
-mailboxes "=Education.Coding.Coursera" "=Education.Coding.Crybrary" "=Education.Coding.Docker" "=Education.Coding.Event Brite" "=Education.Coding.Guru99" "=Education.Coding.HackTheBox" "=Education.Coding.ITProTV" "=Education.Coding.Linode" "=Education.Coding.PyImageSearch"
-
-mailboxes "=Education.edX" "=Education.Game Engines" "=Education.Game Engines.Unity" "=Education.Game Engines.Unreal Engine" "=Education.Goodreads" "=Education.Khan Acadmey and Jet Brains" "=Education.Languages"
-mailboxes "=Education.Languages.SpanishPod101"
-
-mailboxes "=Education.Medium" "=Education.Memrise" "=Education.Milanote" "=Education.Motley Fool" "=Education.National Geographic" "=Education.OverLeaf" "=Education.Quizlet" "=Education.Reddit" "=Education.Speed Reading" "=Education.Trello" "=Education.Udemy" "=Education.Wave"
-mailboxes "=Education.Wave.Aerodynamics" "=Education.Wave.AI and Machine Learning" "=Education.Wave.American People's History" "=Education.Wave.AP Physics" "=Education.Wave.Ed" "=Education.Wave.Geometry" "=Education.Wave.How to get published as a teen" "=Education.Wave.Introduction to AI" "=Education.Wave.Sharing Secrets with Cryptography"
-
-mailboxes "=Education.Zotero"
-
-mailboxes "=Git"
-mailboxes "=Git.GitGuardian" "=Git.GitHub" "=Git.GitHub.Responses"
-
-mailboxes "=Google"
-mailboxes "=Google.Google Ads" "=Google.Google AdSense" "=Google.Google Analytics" "=Google.Google Calendar" "=Google.Google Cloud" "=Google.Google Colab" "=Google.Google Docs" "=Google.Google Drive" "=Google.Google Forms" "=Google.Google Photos" "=Google.Google Security" "=Google.Google Sheets" "=Google.Google Slides"
-
-mailboxes "=LastPass" "=Other"
-mailboxes "=Other.DavientArt" "=Other.Digital Ocean" "=Other.Grammerly" "=Other.Quora" "=Other.Ruqaiyah" "=Other.Spotify" "=Other.Wrike"
-
-mailboxes "=Proton"
-mailboxes "=Proton.Mail" "=Proton.VPN"
-
-mailboxes "=School"
-mailboxes "=School.Brainly" "=School.Notion"
-
-mailboxes "=Website"
-mailboxes "=Website.Disqus" "=Website.GetForm" "=Website.Gilles Castel" "=Website.Netlify"
-
-mailboxes "=YouTube"
-mailboxes "=YouTube.Mr Whaatwaa" "=YouTube.Neil Sabde" "=YouTube.The Primeagen"
-
-mailboxes "=INBOX" "=[Gmail].All Mail"
 # mailboxes "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
 
 set sidebar_new_mail_only

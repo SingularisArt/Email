@@ -8,7 +8,9 @@ source $HOME/.config/mutt/keys/unbinds.muttrc
 source $HOME/.config/mutt/keys/binds.muttrc 
 
 #### Accounts
+# source $HOME/.config/mutt/accounts/1-main.muttrc  #default account
 source $HOME/.config/mutt/accounts/2-school.muttrc  #default account
+# source $HOME/.config/mutt/accounts/3-college.muttrc  #default account
 macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to main account"
 macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to school account"
 macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to college account"
@@ -59,7 +61,7 @@ set display_filter="perl -0777pe 's/___{10,}[^_]*microsoft teams meeting.*to joi
 
 #### Notmuch Config
 set nm_query_type=threads                                   # bring in the whole thread instead of just the matched message, really useful
-set nm_default_url = "notmuch:///$HOME/.local/share/mail"   # default notmuch URL
+set nm_default_url = "notmuch:///$HOME/.local/share/mail/main/INBOX"   # default notmuch URL
 set nm_record_tags = "sent"                                 # default 'sent' tag
 set virtual_spoolfile=yes                                   # allow using virtual mailboxes as spoolfile 
 macro index \Cg "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Accounts<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \$(/bin/cat ~/.cache/mutt_terms) | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a' | sed 's/id://g' \`\"<enter>" "Search all mailboxes in all accounts (Global search)"
@@ -114,5 +116,3 @@ macro compose M "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=UTF-8
 macro attach P "|git-split-diffs --color | less -RF<enter>" "View a patch file as a diff"
 set wait_key = no
 
-# this is a bit of a hack which you may not want/need
-timeout-hook 'exec sync-mailbox' # sync mailbox whenever idle
