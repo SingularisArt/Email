@@ -2,9 +2,8 @@
 Description=Mailbox synchronization timer
 
 [Timer]
-OnBootSec=1m
-OnUnitActiveSec=1m
-Unit=mailsync.service
+OnCalendar=*:0/5
+Persistent=true
 
 [Install]
 WantedBy=timers.target

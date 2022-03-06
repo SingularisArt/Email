@@ -75,3 +75,14 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
+account hashem.damrah@pcc.edu
+host smtp.gmail.com
+port 587
+from hashem.damrah@pcc.edu
+user hashem.damrah@pcc.edu
+passwordeval "pass hashem.damrah@pcc.edu"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/hashem/.config/msmtp/msmtp.log
+

@@ -8,12 +8,18 @@ source $HOME/.config/mutt/keys/unbinds.muttrc
 source $HOME/.config/mutt/keys/binds.muttrc 
 
 #### Accounts
-# source $HOME/.config/mutt/accounts/1-main.muttrc  #default account
-source $HOME/.config/mutt/accounts/2-school.muttrc  #default account
-# source $HOME/.config/mutt/accounts/3-college.muttrc  #default account
-macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to main account"
-macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-school.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to school account"
-macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-college.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to college account"
+source $HOME/.config/mutt/accounts/1-main.muttrc              # default account
+# source $HOME/.config/mutt/accounts/2-proton.muttrc          # default account
+# source $HOME/.config/mutt/accounts/3-school.muttrc          # default account
+# source $HOME/.config/mutt/accounts/4-school-2.muttrc        # default account
+# source $HOME/.config/mutt/accounts/5-college.muttrc         # default account
+
+#### Jump Between Accounts
+macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>'        "switch to main account"
+# macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-proton.muttrc<enter><change-folder>!<enter>;<check-stats>'      "switch to proton account"
+macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-school.muttrc<enter><change-folder>!<enter>;<check-stats>'      "switch to school 1 account"
+macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/4-school-2.muttrc<enter><change-folder>!<enter>;<check-stats>'    "switch to school 2 account"
+macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/5-college.muttrc<enter><change-folder>!<enter>;<check-stats>'     "switch to college account"
 
 #### General Settings
 set smtp_authenticators = 'gssapi:login'
@@ -60,8 +66,8 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set display_filter="perl -0777pe 's/___{10,}[^_]*microsoft teams meeting.*to join the meeting<([^>]*).*(___{10,})/\\n────────────────────────────────────────────────────────────────────────\\n\\nTeams Meeting ~~\\n\\nMeeting URL:\\n$1\\n\\n────────────────────────────────────────────────────────────────────────/is'| sed 's/^\\(To\\|CC\\): \\([^<]*[^>]\\)$/\\1\:<\\2>/g' | perl -0777pe 's/(((?!.*CC:)To:|CC:).+?(?=>\\n)>)/$1!REMOVE_ME!\\n!END!/gs' | sed '/^To:/{;:l N;/!END!/b; s/\\(\\n\\|  *\\|\\t\\t*\\)/ /g; bl}' | sed '/^To:/,/>$/ s/\\([^>]*>,\\?\\)/\\1\\n/g' | sed -e 's/^ \\(CC:\\)\\(.*$\\)/\\1\\n\\2/' -e 's/^\\(To:\\)\\(.*$\\)/\\1 --------------------------------------------------------------------\\n\\2/' -e 's/^!END!$/------------------------------------------------------------------------/' -e '/!REMOVE_ME!/d' -e '/\\[-- Type: text.* --\\]/d' -e '/\\[-- Autoview.* --\\]/d' -e '/\\[-- Type.* --\\]/d' -e '/\\[-- .*unsupported.* --\\]/d' -e '/\\[-- Attachment #[0-9] --\\]/d' -e 's/Attachment #[0-9]: //g' -e '/./,/^$/!d' -e 's/\\([A-Z]*\\), *\\([A-Za-z]*\\)\\(\"\\)\\?/\\2 \\L\\u\\1\\E\\3/g'"
 
 #### Notmuch Config
-set nm_query_type=threads                                   # bring in the whole thread instead of just the matched message, really useful
-set nm_default_url = "notmuch:///$HOME/.local/share/mail/main/INBOX"   # default notmuch URL
+# set nm_query_type=threads                                   # bring in the whole thread instead of just the matched message, really useful
+# set nm_default_url = "notmuch:///$HOME/.local/share/mail/main/INBOX"   # default notmuch URL
 set nm_record_tags = "sent"                                 # default 'sent' tag
 set virtual_spoolfile=yes                                   # allow using virtual mailboxes as spoolfile 
 macro index \Cg "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Accounts<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \$(/bin/cat ~/.cache/mutt_terms) | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a' | sed 's/id://g' \`\"<enter>" "Search all mailboxes in all accounts (Global search)"
@@ -83,12 +89,11 @@ set sidebar_delim_chars = '/.'
 set sidebar_folder_indent = yes
 set sidebar_indent_string = ' - '
 set sidebar_new_mail_only = no
-set sidebar_non_empty_mailbox_only = yes
+# set sidebar_non_empty_mailbox_only = yes
 set sidebar_next_new_wrap = yes
 set sidebar_on_right = no
-set sidebar_divider_char = ' 	░'
+set sidebar_divider_char = '  ░'
 set mail_check_stats
-set sidebar_sort_method = 'new'
 
 #### Thread ordering
 set use_threads=reverse

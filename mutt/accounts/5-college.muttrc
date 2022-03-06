@@ -1,25 +1,27 @@
 # vim: filetype=neomuttrc
 # example of a google imap configuration
-# change college to something sensible (this should match msmtp and isync)
+# change hashem.damrah@pcc.edu to something sensible (this should match msmtp and isync)
 set realname = "Hashem A. Damrah"
 set from = "hashem.damrah@pcc.edu"
-set sendmail = "msmtp -a college"
+set sendmail = "msmtp -a hashem.damrah@pcc.edu"
 alias me Hashem A. Damrah <hashem.damrah@pcc.edu>
-set folder = "~/.local/share/mail/college"
-set header_cache = ~/.cache/mutt/college/headers
-set message_cachedir = ~/.cache/mutt/college/bodies
+set folder = "~/.local/share/mail/hashem.damrah@pcc.edu"
+set header_cache = ~/.cache/mutt/hashem.damrah@pcc.edu/headers
+set message_cachedir = ~/.cache/mutt/hashem.damrah@pcc.edu/bodies
 set mbox_type = Maildir
 set reverse_name=yes
 set reverse_realname=no
 
-macro index o "<shell-escape>mailsync -V college<enter>" "run mbsync to sync main"
+set imap_check_subscribed=yes
+
+macro index o "<shell-escape>mailsync -V hashem.damrah@pcc.edu<enter>" "run mbsync to sync main"
 # Allows responding to calendar invites (replace mutt-ical with import_calendar_invite if you want to import the event into a local calendar too)
 macro attach,pager A '<shell-escape>rm -vf /tmp/.mutt.ics<enter><save-entry><kill-line>mutt-ical /tmp/.mutt.ics hashem.damrah@pcc.edu<enter><shell-escape>
 unmailboxes *
 
-# Create virtual mailboxes for all mail and all accounts (replace college below)
+# Create virtual mailboxes for all mail and all accounts (replace hashem.damrah@pcc.edu below)
 virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
-virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:college%2F**"
+virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:hashem.damrah@pcc.edu%2F**"
 
 # Folders
 mailboxes "=[Gmail].All Mail"
@@ -31,7 +33,6 @@ mailboxes "=[Gmail].Starred"
 mailboxes "=[Gmail].Trash"
 mailboxes "=INBOX"
 
-
 set spoolfile = "+INBOX"
 set record = "+[Gmail].Sent Mail"
 set postponed = "+[Gmail].Drafts"
@@ -41,5 +42,5 @@ set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
 # a add to address book
 macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add the sender address to Google contacts"
 
-# C-f search with notmuch (replace college below)
-macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:college/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"
+# C-f search with notmuch (replace hashem.damrah@pcc.edu below)
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:hashem.damrah@pcc.edu/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"

@@ -1,32 +1,43 @@
-# dermdorm2@gmail.com
-# IMAPStore main-remote
-# Host imap.gmail.com
-# Port 993
-# User dermdorm2@gmail.com
-# PassCmd "pass dermdorm2@gmail.com"
-# AuthMechs LOGIN
-# SSLType IMAPS
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-#
-# MaildirStore main-local
-# Subfolders Verbatim
-# Path ~/.local/share/mail/main/
-# Inbox ~/.local/share/mail/main/INBOX
-# Flatten .
-#
-# Channel main
-# Expunge Both
-# Far :main-remote:
-# Near :main-local:
-# Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
-# Patterns *
-# Create Both
-# SyncState *
-# MaxMessages 1000
-# ExpireUnread no
+#---------------------#
+# dermdorm2@gmail.com #
+#---------------------#
 
-# hdamrah9249@bakercharters.org
-IMAPStore school-remote
+IMAPStore dermdorm2@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User dermdorm2@gmail.com
+PassCmd "pass dermdorm2@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore dermdorm2@gmail.com-local
+Subfolders Verbatim
+Path ~/.local/share/mail/dermdorm2@gmail.com/
+Inbox ~/.local/share/mail/dermdorm2@gmail.com/INBOX
+Flatten .
+
+Channel dermdorm2@gmail.com
+Expunge Both
+Far :dermdorm2@gmail.com-remote:
+Near :dermdorm2@gmail.com-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 1000
+ExpireUnread no
+
+#-----------------------#
+# proton mail goes here #
+#-----------------------#
+
+
+
+#-------------------------------#
+# hdamrah9249@bakercharters.org #
+#-------------------------------#
+
+IMAPStore hdamrah9249@bakercharters.org-remote
 Host imap.gmail.com
 Port 993
 User hdamrah9249@bakercharters.org
@@ -35,46 +46,73 @@ AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 
-MaildirStore school-local
+MaildirStore hdamrah9249@bakercharters.org-local
 Subfolders Verbatim
-Path ~/.local/share/mail/school/
-Inbox ~/.local/share/mail/school/INBOX
+Path ~/.local/share/mail/hdamrah9249@bakercharters.org/
+Inbox ~/.local/share/mail/hdamrah9249@bakercharters.org/INBOX
 Flatten .
 
-Channel main
+Channel hdamrah9249@bakercharters.org
 Expunge Both
-Far :school-remote:
-Near :school-local:
-# Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
+Far :hdamrah9249@bakercharters.org-remote:
+Near :hdamrah9249@bakercharters.org-local:
 Patterns *
 Create Both
 SyncState *
-MaxMessages 1000
 ExpireUnread no
 
-# hashem.damrah@pcc.edu
-# IMAPStore college-remote
-# Host imap.gmail.com
-# Port 993
-# User hashem.damrah@pcc.edu
-# PassCmd "pass hashem.damrah@pcc.edu"
-# AuthMechs LOGIN
-# SSLType IMAPS
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-#
-# MaildirStore college-local
-# Subfolders Verbatim
-# Path ~/.local/share/mail/college/
-# Inbox ~/.local/share/mail/college/INBOX
-# Flatten .
-#
-# Channel main
-# Expunge Both
-# Far :college-remote:
-# Near :college-local:
-# # Patterns * ![Gmail]* "[Gmail]/Drafts" "[Gmail]/Important" "[Gmail]/Sent" "[Gmail]/Sent Mail" "[Gmail]/Spam" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/All Mail"
-# Patterns *
-# Create Both
-# SyncState *
-# MaxMessages 1000
-# ExpireUnread no
+#-------------------------------#
+# hdamrah5070@bakercharters.org #
+#-------------------------------#
+
+IMAPStore hdamrah5070@bakercharters.org-remote
+Host imap.gmail.com
+Port 993
+User hdamrah5070@bakercharters.org
+PassCmd "pass hdamrah5070@bakercharters.org"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hdamrah5070@bakercharters.org-local
+Subfolders Verbatim
+Path ~/.local/share/mail/hdamrah5070@bakercharters.org/
+Inbox ~/.local/share/mail/hdamrah5070@bakercharters.org/INBOX
+Flatten .
+
+Channel hdamrah5070@bakercharters.org
+Expunge Both
+Far :hdamrah5070@bakercharters.org-remote:
+Near :hdamrah5070@bakercharters.org-local:
+Patterns *
+Create Both
+SyncState *
+ExpireUnread no
+
+#-----------------------#
+# hashem.damrah@pcc.edu #
+#-----------------------#
+
+IMAPStore hashem.damrah@pcc.edu-remote
+Host imap.gmail.com
+Port 993
+User hashem.damrah@pcc.edu
+PassCmd "pass hashem.damrah@pcc.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hashem.damrah@pcc.edu-local
+Subfolders Verbatim
+Path ~/.local/share/mail/hashem.damrah@pcc.edu/
+Inbox ~/.local/share/mail/hashem.damrah@pcc.edu/INBOX
+Flatten .
+
+Channel hashem.damrah@pcc.edu
+Expunge Both
+Far :hashem.damrah@pcc.edu-remote:
+Near :hashem.damrah@pcc.edu-local:
+Patterns *
+Create Both
+SyncState *
+ExpireUnread no

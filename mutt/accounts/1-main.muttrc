@@ -1,63 +1,148 @@
 # vim: filetype=neomuttrc
-# change main to something sensible (this should match msmtp and isync)
+# change dermdorm2@gmail.com to something sensible (this should match msmtp and isync)
 set realname = "Hashem A. Damrah"
 set from = "dermdorm2@gmail.com"
-set sendmail = "msmtp -a main"
+set sendmail = "msmtp -a dermdorm2@gmail.com"
 alias me Hashem A. Damrah <dermdorm2@gmail.com>
-set folder = "~/.local/share/mail/main"
-set header_cache = ~/.cache/mutt/main/headers
-set message_cachedir = ~/.cache/mutt/main/bodies
+set folder = "~/.local/share/mail/dermdorm2@gmail.com"
+set header_cache = ~/.cache/mutt/dermdorm2@gmail.com/headers
+set message_cachedir = ~/.cache/mutt/dermdorm2@gmail.com/bodies
 set mbox_type = Maildir
 set reverse_name=yes
 set reverse_realname=no
 
-macro index o "<shell-escape>mailsync -V main<enter>" "run mbsync to sync main"
+set imap_check_subscribed=yes
+
+macro index o "<shell-escape>mailsync -V dermdorm2@gmail.com<enter>" "run mbsync to sync dermdorm2@gmail.com"
 # Allows responding to calendar invites (replace mutt-ical with import_calendar_invite if you want to import the event into a local calendar too)
 macro attach,pager A '<shell-escape>rm -vf /tmp/.mutt.ics<enter><save-entry><kill-line>mutt-ical /tmp/.mutt.ics dermdorm2@gmail.com<enter><shell-escape>
 unmailboxes *
 
 # Create virtual mailboxes for all mail and all accounts (replace main below)
-virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
-virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:main%2F**"
+# virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
+# virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:dermdorm2@gmail.com%2F**"
 
+# Folders
 mailboxes "=Currency"
-mailboxes "=Currency.Chase" "=Currency.Coinbase" "=Currency.CoinMarketCap" "=Currency.eToro" "=Currency.Gemini" "=Currency.Infura"
+mailboxes "=Currency.Chase"
+mailboxes "=Currency.Coinbase"
+mailboxes "=Currency.CoinMarketCap"
+mailboxes "=Currency.eToro"
+mailboxes "=Currency.Gemini"
+mailboxes "=Currency.Infura"
+
 mailboxes "=Education"
 mailboxes "=Education.Coding"
-"=Education.Coding.Coursera" "=Education.Coding.Crybrary" "=Education.Coding.Docker" "=Education.Coding.Event Brite" "=Education.Coding.Guru99" "=Education.Coding.HackTheBox" "=Education.Coding.ITProTV" "=Education.Coding.Linode" "=Education.Coding.PyImageSearch"
+mailboxes "=Education.Coding.CodePen"
+mailboxes "=Education.Coding.Coursera"
+mailboxes "=Education.Coding.Crybrary"
+mailboxes "=Education.Coding.Docker"
+mailboxes "=Education.Coding.Event Brite"
+mailboxes "=Education.Coding.GoHugo"
+mailboxes "=Education.Coding.Guru99"
+mailboxes "=Education.Coding.HackTheBox"
+mailboxes "=Education.Coding.ITProTV"
+mailboxes "=Education.Coding.LeetCode"
+mailboxes "=Education.Coding.Linode"
+mailboxes "=Education.Coding.PyImageSearch"
+mailboxes "=Education.Coding.StackOverFlow"
 mailboxes "=Education.edX"
 mailboxes "=Education.Game Engines"
-mailboxes "=Education.Game Engines.Unity" "=Education.Game Engines.Unreal Engine"
-mailboxes "=Education.Goodreads" "=Education.Khan Acadmey and Jet Brains"
+mailboxes "=Education.Game Engines.Unity"
+mailboxes "=Education.Game Engines.Unreal Engine"
+mailboxes "=Education.Goodreads"
+mailboxes "=Education.Khan Acadmey and Jet Brains"
 mailboxes "=Education.Languages"
 mailboxes "=Education.Languages.SpanishPod101"
-mailboxes "=Education.Medium" "=Education.Memrise" "=Education.Milanote" "=Education.Motley Fool" "=Education.National Geographic" "=Education.OverLeaf" "=Education.Quizlet" "=Education.Reddit" "=Education.Speed Reading" "=Education.Trello" "=Education.Udemy"
+mailboxes "=Education.LinkedIn"
+mailboxes "=Education.Medium"
+mailboxes "=Education.Memrise"
+mailboxes "=Education.Milanote"
+mailboxes "=Education.Motley Fool"
+mailboxes "=Education.National Geographic"
+mailboxes "=Education.OverLeaf"
+mailboxes "=Education.Quizlet"
+mailboxes "=Education.Reddit"
+mailboxes "=Education.Speed Reading"
+mailboxes "=Education.Trello"
+mailboxes "=Education.Udemy"
 mailboxes "=Education.Wave"
-mailboxes "=Education.Wave.Aerodynamics" "=Education.Wave.AI and Machine Learning" "=Education.Wave.American People's History""" "=Education.Wave.AP Physics" "=Education.Wave.Ed" "=Education.Wave.Geometry" "=Education.Wave.How to get published as a teen" "=Education.Wave.Introduction to AI" "=Education.Wave.Sharing Secrets with Cryptography"
+mailboxes "=Education.Wave.Aerodynamics"
+mailboxes "=Education.Wave.AI and Machine Learning"
+mailboxes "=Education.Wave.American People's History"
+mailboxes "=Education.Wave.AP Physics"
+mailboxes "=Education.Wave.Ed"
+mailboxes "=Education.Wave.Geometry"
+mailboxes "=Education.Wave.How to get published as a teen"
+mailboxes "=Education.Wave.Introduction to AI"
+mailboxes "=Education.Wave.Sharing Secrets with Cryptography"
 mailboxes "=Education.Zotero"
-mailboxes "=Git"
-mailboxes "=Git.GitGuardian" "=Git.GitHub" "=Git.GitHub.Responses"
-mailboxes "=Google"
-mailboxes "=Google.Google Ads" "=Google.Google AdSense" "=Google.Google Analytics" "=Google.Google Calendar" "=Google.Google Cloud" "=Google.Google Colab" "=Google.Google Docs" "=Google.Google Drive" "=Google.Google Forms" "=Google.Google Photos" "=Google.Google Security" "=Google.Google Sheets" "=Google.Google Slides"
-mailboxes "=LastPass"
-mailboxes "=Other"
-mailboxes "=Other.DavientArt" "=Other.Digital Ocean" "=Other.Grammerly" "=Other.Quora" "=Other.Ruqaiyah" "=Other.Spotify" "=Other.Wrike"
-mailboxes "=Proton"
-mailboxes "=Proton.Mail" "=Proton.VPN"
-mailboxes "=School"
-mailboxes "=School.Brainly" "=School.Notion"
-mailboxes "=Website"
-mailboxes "=Website.Disqus" "=Website.GetForm" "=Website.Gilles Castel" "=Website.Netlify"
-mailboxes "=YouTube"
-mailboxes "=YouTube.Mr Whaatwaa" "=YouTube.Neil Sabde" "=YouTube.The Primeagen"
 
-mailboxes "=INBOX" "=Archive"
-mailboxes "=[Gmail].All Mail" "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
+mailboxes "=Git"
+mailboxes "=Git.GitGuardian"
+mailboxes "=Git.GitHub"
+mailboxes "=Git.GitHub.Responses"
+
+mailboxes "=Google"
+mailboxes "=Google.Google Ads"
+mailboxes "=Google.Google AdSense"
+mailboxes "=Google.Google Analytics"
+mailboxes "=Google.Google Calendar"
+mailboxes "=Google.Google Cloud"
+mailboxes "=Google.Google Colab"
+mailboxes "=Google.Google Docs"
+mailboxes "=Google.Google Drive"
+mailboxes "=Google.Google Forms"
+mailboxes "=Google.Google Photos"
+mailboxes "=Google.Google Security"
+mailboxes "=Google.Google Sheets"
+mailboxes "=Google.Google Slides"
+
+mailboxes "=LastPass"
+
+mailboxes "=Other"
+mailboxes "=Other.DavientArt"
+mailboxes "=Other.Digital Ocean"
+mailboxes "=Other.Grammerly"
+mailboxes "=Other.Quora"
+mailboxes "=Other.Ruqaiyah"
+mailboxes "=Other.Spotify"
+mailboxes "=Other.Wrike"
+
+mailboxes "=Proton"
+mailboxes "=Proton.Mail"
+mailboxes "=Proton.VPN"
+
+mailboxes "=School"
+mailboxes "=School.Brainly"
+mailboxes "=School.Notion"
+
+mailboxes "=Website"
+mailboxes "=Website.Disqus"
+mailboxes "=Website.GetForm"
+mailboxes "=Website.Gilles Castel"
+mailboxes "=Website.Netlify"
+
+mailboxes "=YouTube"
+mailboxes "=YouTube.Mr Whaatwaa"
+mailboxes "=YouTube.Neil Sabde"
+mailboxes "=YouTube.The Primeagen"
+
+mailboxes "=INBOX"
+mailboxes "=Archive"
+mailboxes "=[Gmail].All Mail"
+mailboxes "=[Gmail].Drafts"
+mailboxes "=[Gmail].Important"
+mailboxes "=[Gmail].Sent"
+mailboxes "=[Gmail].Sent Mail"
+mailboxes "=[Gmail].Spam"
+mailboxes "=[Gmail].Starred"
+mailboxes "=[Gmail].Trash"
 
 set spoolfile = "+INBOX"
 set record = "+[Gmail].Sent Mail"
 set postponed = "+[Gmail].Drafts"
-set trash = ""
+set trash = "+[Gmail].Trash"
 # Query with goobook
 set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
 # a add to address book
@@ -67,7 +152,8 @@ macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<re
 
 set sidebar_new_mail_only
 set sidebar_new_mail_only
-sidebar_whitelist "~/.local/share/mail/main/"
+sidebar_whitelist "~/.local/share/mail/dermdorm2@gmail.com/"
 
-# C-f search with notmuch (replace main below)
-macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:main/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"
+# C-f search with notmuch (replace dermdorm2@gmail.com below)
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:dermdorm2@gmail.com/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"
+

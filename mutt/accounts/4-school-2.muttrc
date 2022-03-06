@@ -1,0 +1,39 @@
+# vim: filetype=neomuttrc
+set realname = "Hashem A. Damrah"
+set from = "hdamrah5070@bakercharters.org"
+set sendmail = "msmtp -a hdamrah5070@bakercharters.org"
+alias me Hashem A. Damrah <hdamrah5070@bakercharters.org>
+set folder = "~/.local/share/mail/hdamrah5070@bakercharters.org"
+set header_cache = ~/.cache/mutt/hdamrah5070@bakercharters.org/headers
+set message_cachedir = ~/.cache/mutt/hdamrah5070@bakercharters.org/bodies
+set mbox_type = Maildir
+set reverse_name=yes
+set reverse_realname=no
+
+set imap_check_subscribed=yes
+
+macro index o "<shell-escape>mailsync -V hdamrah5070@bakercharters.org<enter>" "run mbsync to sync hdamrah5070@bakercharters.org"
+# Allows responding to calendar invites (replace mutt-ical with import_calendar_invite if you want to import the event into a local calendar too)
+macro attach,pager A '<shell-escape>rm -vf /tmp/.mutt.ics<enter><save-entry><kill-line>mutt-ical /tmp/.mutt.ics hdamrah5070@bakercharters.org<enter><shell-escape>
+unmailboxes *
+
+# Folders
+mailboxes "=INBOX" "=Archive" "=[Gmail].All Mail" "=[Gmail].Drafts" "=[Gmail].Important" "=[Gmail].Sent" "=[Gmail].Sent Mail" "=[Gmail].Spam" "=[Gmail].Starred" "=[Gmail].Trash"
+
+set spoolfile = "+INBOX"
+set record = "+[Gmail].Sent Mail"
+set postponed = "+[Gmail].Drafts"
+set trash = "+[Gmail].Trash"
+
+# Query with goobook
+set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
+# a add to address book
+macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add the sender address to Google contacts"
+
+set sidebar_new_mail_only
+set sidebar_new_mail_only
+sidebar_whitelist "~/.local/share/mail/hdamrah5070@bakercharters.org/"
+
+# C-f search with notmuch (replace hdamrah5070@bakercharters.org below)
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:hdamrah5070@bakercharters.org/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"
+
