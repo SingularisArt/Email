@@ -28,68 +28,6 @@ MaxMessages 1000
 ExpireUnread no
 
 #-----------------------#
-# proton mail goes here #
-#-----------------------#
-
-
-
-#-------------------------------#
-# hdamrah9249@bakercharters.org #
-#-------------------------------#
-
-IMAPStore hdamrah9249@bakercharters.org-remote
-Host imap.gmail.com
-Port 993
-User hdamrah9249@bakercharters.org
-PassCmd "pass hdamrah9249@bakercharters.org"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore hdamrah9249@bakercharters.org-local
-Subfolders Verbatim
-Path ~/.local/share/mail/hdamrah9249@bakercharters.org/
-Inbox ~/.local/share/mail/hdamrah9249@bakercharters.org/INBOX
-Flatten .
-
-Channel hdamrah9249@bakercharters.org
-Expunge Both
-Far :hdamrah9249@bakercharters.org-remote:
-Near :hdamrah9249@bakercharters.org-local:
-Patterns *
-Create Both
-SyncState *
-ExpireUnread no
-
-#-------------------------------#
-# hdamrah5070@bakercharters.org #
-#-------------------------------#
-
-IMAPStore hdamrah5070@bakercharters.org-remote
-Host imap.gmail.com
-Port 993
-User hdamrah5070@bakercharters.org
-PassCmd "pass hdamrah5070@bakercharters.org"
-AuthMechs LOGIN
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-MaildirStore hdamrah5070@bakercharters.org-local
-Subfolders Verbatim
-Path ~/.local/share/mail/hdamrah5070@bakercharters.org/
-Inbox ~/.local/share/mail/hdamrah5070@bakercharters.org/INBOX
-Flatten .
-
-Channel hdamrah5070@bakercharters.org
-Expunge Both
-Far :hdamrah5070@bakercharters.org-remote:
-Near :hdamrah5070@bakercharters.org-local:
-Patterns *
-Create Both
-SyncState *
-ExpireUnread no
-
-#-----------------------#
 # hashem.damrah@pcc.edu #
 #-----------------------#
 

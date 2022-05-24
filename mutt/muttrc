@@ -9,17 +9,11 @@ source $HOME/.config/mutt/keys/binds.muttrc
 
 #### Accounts
 source $HOME/.config/mutt/accounts/1-main.muttrc              # default account
-# source $HOME/.config/mutt/accounts/2-proton.muttrc          # default account
-# source $HOME/.config/mutt/accounts/3-school.muttrc          # default account
-# source $HOME/.config/mutt/accounts/4-school-2.muttrc        # default account
-# source $HOME/.config/mutt/accounts/5-college.muttrc         # default account
+# source $HOME/.config/mutt/accounts/2-college.muttrc         # default account
 
 #### Jump Between Accounts
 macro index,pager i1 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/1-main.muttrc<enter><change-folder>!<enter>;<check-stats>'        "switch to main account"
-# macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-proton.muttrc<enter><change-folder>!<enter>;<check-stats>'      "switch to proton account"
-macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/3-school.muttrc<enter><change-folder>!<enter>;<check-stats>'      "switch to school 1 account"
-macro index,pager i3 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/4-school-2.muttrc<enter><change-folder>!<enter>;<check-stats>'    "switch to school 2 account"
-macro index,pager i4 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/5-college.muttrc<enter><change-folder>!<enter>;<check-stats>'     "switch to college account"
+macro index,pager i2 '<sync-mailbox><enter-command>source $HOME/.config/mutt/accounts/2-college.muttrc<enter><change-folder>!<enter>;<check-stats>'     "switch to college account"
 
 #### General Settings
 set smtp_authenticators = 'gssapi:login'
